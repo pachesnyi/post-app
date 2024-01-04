@@ -1,44 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PostsComponent } from './posts.component';
 import { HttpClientTestingModule } from "@angular/common/http/testing";
 import { PostService } from "./services/post.service";
-import { Post } from "./models/post.model";
 import { PostStore, SelectedPostStore } from "./stores/posts.store";
-
-class PostStoreMock {
-  entities() : [] {
-    return [];
-  }
-}
-
-class SelectedPostStoreMock {
-  private selectedPost: Post | null = null;
-
-  post() : Post | null {
-    return this.selectedPost;
-  }
-
-  setSelected(post: Post) : void {
-    this.selectedPost = post;
-  }
-}
 
 describe('PostsComponent', () => {
   let component: PostsComponent;
   let fixture: ComponentFixture<PostsComponent>;
   let postService: jasmine.SpyObj<PostService>;
-  let postStoreMock: jasmine.SpyObj<PostStoreMock>;
-  let selectedPostStoreMock: jasmine.SpyObj<SelectedPostStoreMock>;
-
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [PostsComponent, HttpClientTestingModule],
       providers: [
         { provide: PostService, useValue: postService },
-        { provide: PostStore, useClass: postStoreMock },
-        { provide: SelectedPostStore, useClass: selectedPostStoreMock },
+        PostStore,
+        SelectedPostStore,
       ],
     })
     .compileComponents();
