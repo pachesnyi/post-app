@@ -14,7 +14,7 @@ const NO_DATA_PLACEHOLDER : string = "No data";
   styleUrl: './posts.component.scss',
   template: `
       <div class="title">
-          <h2>Selected post User ID: {{ selectedPostStore.post()?.userId }}</h2>
+          <h2>Selected post ID: {{ selectedPostStore.post()?.id }}</h2>
       </div>
       <div class="grid">
           @for (post of postStore.entities();track post.id) {
