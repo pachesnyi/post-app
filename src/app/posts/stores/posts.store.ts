@@ -3,13 +3,14 @@ import {
   signalStore,
   patchState,
   withHooks,
-  withMethods, withState,
+  withMethods,
+  withState,
 } from '@ngrx/signals';
 import { Post } from "../models/post.model";
 import { PostService } from "../services/post.service";
 import { setAllEntities, withEntities } from "@ngrx/signals/entities";
 
-export type SelectedPostIdState = {postId: number | null};
+export type SelectedPostState = {post: Post | null};
 
 export const PostStore = signalStore(
   withEntities<Post>(),
@@ -21,17 +22,17 @@ export const PostStore = signalStore(
         const todos = await postService.getPosts();
 
         patchState(store, setAllEntities(todos));
-      }
+      },
     };
   }),
   withHooks({onInit: (store) => store.load()})
 );
 
-export const SelectedPostIdStore = signalStore(
-  withState<SelectedPostIdState>({postId: null}),
+export const SelectedPostStore = signalStore(
+  withState<SelectedPostState>({post: null}),
   withMethods((store) => ({
-    setSelected(selectedPostId: number) : void {
-      patchState(store, {postId: selectedPostId})
+    setSelected(selectedPost: Post) : void {
+      patchState(store, {post: selectedPost})
     }
   })),
 );
