@@ -10,19 +10,23 @@ Each post is displayed in a separate component, appearing as squares on the page
 
 - **Interactive Squares:**
   - Clicking on a square toggles the display content.
-  - Sequence: Title -> UserId -> Id (looping back to Title).
+  - Sequence: UserId -> Id -> Body (looping back to UserId).
   - Only one square at a time shows detailed information.
 
 - **Top Page Indicator:**
   - The top of the page displays the ID of the currently active post.
 
+## Demo
+
+Application was hosted on Netlify. Please check it using this [link](https://scintillating-croquembouche-384691.netlify.app/).
+
 ## State Management
 
-The application incorporates state management to handle the dynamic display of post details. NgRx has been used for this purpose, ensuring a structured and efficient state management approach. However, feel free to use any other state management solution that aligns with your preferences.
+New NgRx signal store has been used for handling data fetching and state for selected post.
 
 ## Bonus: Test Coverage
 
-To ensure the reliability and stability of the application, comprehensive test coverage has been implemented. This includes unit tests, integration tests, and end-to-end tests. This extra effort enhances the robustness of the codebase, providing a solid foundation for future development and maintenance.
+To ensure the reliability and stability of the application, partial test coverage has been implemented. This includes unit tests for some components. This extra effort enhances the robustness of the codebase, providing a solid foundation for future development and maintenance.
 
 ## Getting Started
 
@@ -31,7 +35,3 @@ To ensure the reliability and stability of the application, comprehensive test c
 3. Install dependencies: `npm install`
 4. Run the application: `ng serve`
 5. Open your browser and go to `http://localhost:4200/` to view the app.
-
-## Contributions
-
-We welcome contributions and feedback. If you have any suggestions, issues, or enhancements, please open an issue or submit a pull request.
