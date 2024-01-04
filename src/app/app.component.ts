@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import {PostGridComponent} from "./posts/ui/post-grid/post-grid.component";
 import {PostsComponent} from "./posts/posts.component";
 import { HttpClientModule } from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, HttpClientModule, RouterOutlet, PostGridComponent, PostsComponent],
+  imports: [CommonModule, HttpClientModule, RouterOutlet, PostsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   providers: [],
