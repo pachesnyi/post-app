@@ -1,0 +1,20 @@
+<button
+  (click)="postClick()"
+  [ngClass]="{'post--selected' : selected}"
+  class="post"
+>
+  @switch (clickCount()) {
+    @case (1) {
+      User ID: {{ post.userId }}
+    }
+    @case (2) {
+      Post ID: {{ post.id }}
+    }
+    @case (3) {
+      Body: {{ post.body }}
+    }
+    @default {
+      Title: {{ post.title }}
+    }
+  }
+</button>
